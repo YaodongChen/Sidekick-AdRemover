@@ -17,21 +17,29 @@
   the iteration process.
 -->
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
-**Project Type**: [single/web/mobile - determines source structure]  
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+**Language/Version**: TypeScript (strict mode enabled)
+**Primary Dependencies**: Vite 5.x, @crxjs/vite-plugin, @types/chrome
+**Storage**: Chrome Storage API (local only, no sync)
+**Testing**: Performance benchmarks (<50ms filter application), integration tests
+**Target Platform**: Chrome 120+ browser extension (Manifest V3)
+**Project Type**: Browser extension (Chrome extension structure)
+**Performance Goals**: <50ms filter application (NON-NEGOTIABLE), <50ms settings propagation
+**Constraints**: No external network requests, <50MB memory footprint, offline-only operation
+**Scale/Scope**: Single-user browser extension, lightweight footprint
 
 ## Constitution Check
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- ✅ TypeScript with strict mode enabled
+- ✅ Manifest V3 compliance
+- ✅ Performance: Filter application <50ms (NON-NEGOTIABLE)
+- ✅ Privacy: No external network requests (offline-only)
+- ✅ Build: Vite + @crxjs/vite-plugin
+- ✅ Target: Chrome 120+ only
+- ✅ Code quality: ESLint + Prettier enforcement
+- ⚠ Minimal dependencies (justify each new dependency)
+- ⚠ Memory footprint <50MB
 
 ## Project Structure
 
@@ -56,43 +64,25 @@ specs/[###-feature]/
 -->
 
 ```text
-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
+# Chrome Extension (Manifest V3) Structure
 src/
-├── models/
-├── services/
-├── cli/
-└── lib/
+├── background/        # Service worker scripts
+├── content/          # Content scripts for DOM manipulation
+├── popup/            # Popup UI components
+├── types/            # TypeScript type definitions
+└── utils/            # Shared utilities
 
 tests/
-├── contract/
-├── integration/
-└── unit/
+├── performance/      # Performance benchmarks (<50ms validation)
+└── integration/      # Integration tests
 
-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
-backend/
-├── src/
-│   ├── models/
-│   ├── services/
-│   └── api/
-└── tests/
+public/              # Static assets
+└── icons/           # Extension icons
 
-frontend/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-└── tests/
-
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
-
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
+dist/                # Build output (gitignored)
 ```
 
-**Structure Decision**: [Document the selected structure and reference the real
-directories captured above]
+**Structure Decision**: Browser extension structure following Manifest V3 architecture with clear separation between background service worker, content scripts, and popup UI. Vite with @crxjs/vite-plugin handles bundling and hot reload.
 
 ## Complexity Tracking
 

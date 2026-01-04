@@ -1,0 +1,26 @@
+<svg width="128" height="128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Minimal modern design: Eye with slash (no ads shown) -->
+  <defs>
+    <linearGradient id="modernGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C4DFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#448AFF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <circle cx="64" cy="64" r="60" fill="url(#modernGradient)"/>
+
+  <!-- Rectangle frame (represents content/page) -->
+  <rect x="32" y="36" width="64" height="56" rx="4" fill="white" opacity="0.2" stroke="white" stroke-width="2"/>
+
+  <!-- Ad box inside with X -->
+  <rect x="44" y="48" width="40" height="32" rx="2" fill="#FF5252" opacity="0.8"/>
+
+  <!-- Large X over ad -->
+  <line x1="46" y1="50" x2="82" y2="78" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <line x1="82" y1="50" x2="46" y2="78" stroke="white" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Checkmark in corner (clean/done) -->
+  <circle cx="90" cy="38" r="12" fill="#4CAF50"/>
+  <path d="M 84 38 L 88 42 L 96 34" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
