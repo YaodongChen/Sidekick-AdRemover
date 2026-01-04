@@ -1,0 +1,23 @@
+# .gitignore
+
+# AI generated files
+.claude/
+.specify/
+specs/
+
+# Build artifacts
+dist/
+build/
+
+# Node.js
+node_modules/
+npm-debug.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
