@@ -3,7 +3,7 @@
   "name": "Sidekick AdRemover",
   "short_name": "Sidekick",
   "version": "1.0.0",
-  "description": "Free sidebar ad blocker. No setup required - just install and browse. Lightweight, privacy-first, zero configuration.",
+  "description": "Free sidebar ad blocker for cleaner reading. Reduces visual noise by removing peripheral ads. Lightweight, privacy-first, no setup.",
   "icons": {
     "16": "public/icon.png",
     "48": "public/icon.png",
