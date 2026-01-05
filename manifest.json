@@ -4,6 +4,7 @@
   "short_name": "Sidekick",
   "version": "1.0.0",
   "description": "Free sidebar ad blocker for cleaner reading. Reduces visual noise by removing peripheral ads. Lightweight, privacy-first, no setup.",
+  "homepage_url": "https://github.com/YaodongChen/sidekick-adremover",
   "icons": {
     "16": "public/icon.png",
     "48": "public/icon.png",

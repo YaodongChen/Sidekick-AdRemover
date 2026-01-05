@@ -72,9 +72,32 @@ The Extension requests the following Chrome permissions:
 **What we DON'T do:** We don't store browsing history, personal data, or track your behavior.
 
 ### `activeTab`
-**Why we need it:** To access the current webpage's DOM (Document Object Model) to detect and hide sidebar advertisements.
+**Why we need it:** To detect the current tab's domain for the enable/disable toggle feature.
 
 **What we DON'T do:** We don't read sensitive information, access other tabs, or monitor your browsing across websites.
+
+### Access to "all websites" (Content Scripts)
+**Permission notice:** "Read and change all your data on all websites"
+
+**Why we need it:** The Extension injects a content script on all websites to automatically detect and hide sidebar advertisements. This is essential because:
+- Ad blocking must work automatically on any website you visit
+- We cannot predict which websites you'll browse
+- Restricting to specific domains would make the extension useless on most websites
+
+**What the content script actually does:**
+1. Scans the page for ad elements using predefined CSS selectors
+2. Hides matching elements by setting `display: none`
+3. Monitors for dynamically loaded ads
+
+**What we DON'T do with this permission:**
+- Read your passwords, emails, or personal messages
+- Access form data or login credentials
+- Track which websites you visit
+- Send any data to external servers
+- Modify page content beyond hiding ads
+- Inject additional ads or scripts
+
+**You can verify this:** Review our source code on GitHub to see exactly what the content script does. The entire implementation is transparent and open for inspection.
 
 ## 6. Data Security
 
